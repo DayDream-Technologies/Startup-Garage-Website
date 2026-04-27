@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Build
+        env:
+          # When deploying to a project Pages site (https://<user>.github.io/<repo>/),
+          # set VITE_BASE to "/<repo>/". Override in the repo's Variables panel
+          # (Settings → Secrets and variables → Actions → Variables) to switch to
+          # a custom domain or to "/" for a user/org Pages site.
+          VITE_BASE: ${{ vars.VITE_BASE || '/Startup-Garage-Website/' }}
+        run: npm run build
+
+      # public/404.html is bundled into dist/ automatically by Vite and contains
+      # the GitHub Pages SPA redirect script that hands deep-link routes off to
+      # the React app shell.
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

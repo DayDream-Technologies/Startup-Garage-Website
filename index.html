@@ -16,6 +16,27 @@
     />
     <meta property="og:type" content="website" />
     <title>Startup Garage — Expanding Christ-Centered Entrepreneurship</title>
+    <script>
+      // GitHub Pages SPA redirect — restore the originally requested URL after
+      // 404.html bounced the user back to the SPA shell.
+      (function () {
+        var l = window.location;
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

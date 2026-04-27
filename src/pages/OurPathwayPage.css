@@ -1,0 +1,64 @@
+.why h2 {
+  margin: var(--space-2) 0 var(--space-4);
+}
+
+.pathway-stories {
+  background: var(--color-bg-light);
+}
+
+.pathway-stories__header {
+  max-width: 760px;
+  margin-bottom: var(--space-7);
+}
+
+.pathway-stories__header h2 {
+  margin-top: var(--space-2);
+}
+
+.pathway-stories__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.where-to-start__header {
+  max-width: 760px;
+  margin-bottom: var(--space-8);
+}
+
+.where-to-start__header h2 {
+  margin-top: var(--space-2);
+}
+
+.where-to-start__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.where-to-start__card {
+  background: var(--color-bg-elev);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.where-to-start__card h3 {
+  font-size: var(--fs-md);
+  margin: 0;
+  color: var(--color-text-inverse);
+}
+
+.where-to-start__card p {
+  color: var(--color-text-muted-dark);
+  margin: 0;
+  flex: 1;
+}
+
+@media (max-width: 980px) {
+  .where-to-start__grid {
+    grid-template-columns: 1fr;
+  }
+}
