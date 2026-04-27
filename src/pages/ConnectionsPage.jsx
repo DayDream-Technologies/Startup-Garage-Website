@@ -90,18 +90,39 @@ export default function ConnectionsPage() {
                 {mentor.placeholder && (
                   <span className="mentor-card__tag">Placeholder</span>
                 )}
-                <div className="mentor-card__avatar" aria-hidden="true">
-                  <span>
-                    {mentor.name
-                      .split(' ')
-                      .map((part) => part[0])
-                      .join('')
-                      .slice(0, 2)}
-                  </span>
-                </div>
+                {mentor.image ? (
+                  <img
+                    className="mentor-card__image"
+                    src={mentor.image}
+                    alt={`${mentor.name} headshot`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="mentor-card__avatar" aria-hidden="true">
+                    <span>
+                      {mentor.name
+                        .split(' ')
+                        .map((part) => part[0])
+                        .join('')
+                        .slice(0, 2)}
+                    </span>
+                  </div>
+                )}
                 <h3>{mentor.name}</h3>
                 <p className="mentor-card__focus">{mentor.focus}</p>
                 <p>{mentor.bio}</p>
+                {mentor.linkedin && (
+                  <a
+                    className="mentor-card__linkedin"
+                    href={mentor.linkedin}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    LinkedIn
+                    <span aria-hidden="true">→</span>
+                  </a>
+                )}
               </article>
             ))}
           </div>
