@@ -8,6 +8,10 @@ import ConnectionsPage from './pages/ConnectionsPage.jsx';
 import TheForgePage from './pages/TheForgePage.jsx';
 import OurPathwayPage from './pages/OurPathwayPage.jsx';
 import ResourcesToolsPage from './pages/ResourcesToolsPage.jsx';
+import OurStoryPage from './pages/OurStoryPage.jsx';
+import CoreValuesPage from './pages/CoreValuesPage.jsx';
+import TeamPage from './pages/TeamPage.jsx';
+import StrategicPartnersPage from './pages/StrategicPartnersPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 function ScrollManager() {
@@ -51,6 +55,10 @@ export default function App() {
           <Route path="/groups/the-forge" element={<TheForgePage />} />
           <Route path="/the-forge" element={<TheForgePage />} />
           <Route path="/resources-tools" element={<ResourcesToolsPage />} />
+          <Route path="/our-story" element={<OurStoryPage />} />
+          <Route path="/core-values" element={<CoreValuesPage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/strategic-partners" element={<StrategicPartnersPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

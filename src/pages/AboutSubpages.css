@@ -1,0 +1,21 @@
+.about-prose__block {
+  margin-bottom: var(--space-9);
+}
+
+.about-prose__block:last-child {
+  margin-bottom: 0;
+}
+
+.about-prose__block h2 {
+  margin-bottom: var(--space-4);
+}
+
+.about-prose__block p {
+  color: var(--color-text-muted);
+  max-width: 65ch;
+}
+
+.about-values__intro {
+  margin-bottom: var(--space-7);
+  max-width: 65ch;
+}

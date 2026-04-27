@@ -1,19 +1,17 @@
 import { Link } from 'react-router-dom';
-import { externalLinks, navItems, siteMeta } from '../../content/siteMeta.js';
+import { footerExploreLinks, footerNetworkLinks, navItems, siteMeta } from '../../content/siteMeta.js';
 import './Footer.css';
 
-const exploreLinks = [
-  { label: 'Our Story', href: externalLinks.ourStory, external: true },
-  { label: 'Blog', href: externalLinks.blog, external: true },
-  { label: 'Videos', href: externalLinks.videos, external: true },
-  { label: 'Contact', href: externalLinks.contact, external: true },
-];
-
-const networkLinks = [
-  { label: 'Mentors & Speakers', href: externalLinks.mentorsSpeakers, external: true },
-  { label: 'Student Founders', href: externalLinks.studentFounders, external: true },
-  { label: 'Strategic Partners', href: externalLinks.strategicPartners, external: true },
-];
+function FooterNavLink({ item }) {
+  if (item.to) {
+    return <Link to={item.to}>{item.label}</Link>;
+  }
+  return (
+    <a href={item.href} target="_blank" rel="noreferrer noopener">
+      {item.label}
+    </a>
+  );
+}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -42,11 +40,9 @@ export default function Footer() {
         <nav className="site-footer__col" aria-label="Explore">
           <h4 className="site-footer__heading">Explore</h4>
           <ul>
-            {exploreLinks.map((item) => (
+            {footerExploreLinks.map((item) => (
               <li key={item.label}>
-                <a href={item.href} target="_blank" rel="noreferrer noopener">
-                  {item.label}
-                </a>
+                <FooterNavLink item={item} />
               </li>
             ))}
           </ul>
@@ -55,11 +51,9 @@ export default function Footer() {
         <nav className="site-footer__col" aria-label="Network">
           <h4 className="site-footer__heading">Network</h4>
           <ul>
-            {networkLinks.map((item) => (
+            {footerNetworkLinks.map((item) => (
               <li key={item.label}>
-                <a href={item.href} target="_blank" rel="noreferrer noopener">
-                  {item.label}
-                </a>
+                <FooterNavLink item={item} />
               </li>
             ))}
           </ul>

@@ -4,6 +4,23 @@ This checklist reflects decisions from recent work: **canonical `/connections`**
 
 ---
 
+## About pages — final copy & imagery (new)
+
+These routes are live in the app with **draft structure** and a visible **“Draft content”** notice where `needsFinalContent: true` in the content module. Replace placeholders, then set `needsFinalContent` to `false` in the corresponding file when leadership approves.
+
+| Page | Route | Content file | What’s still needed |
+|------|--------|----------------|---------------------|
+| Our founding story | `/our-story` | `src/content/pages/ourStory.js` | Approved narrative (who, when, why West Michigan), specific milestones, quotes, **historical photos** under e.g. `public/images/our-story/` (founders, early events, team). Optional timeline graphic. |
+| Core values | `/core-values` | `src/content/pages/coreValues.js` | **Final list of values**, exact wording, order, and optional **icon or illustration per value** under e.g. `public/images/values/`. Remove or rewrite draft value cards. |
+| Staff & Board | `/team` | `src/content/pages/team.js` | Real **staff** roster (name, title, short bio, optional LinkedIn). Full **board** list with roles (Chair, Treasurer, etc.). **Square headshots** (~800px) under `public/images/team/` referenced from each `image` field. Remove placeholder rows. |
+| Strategic partners | `/strategic-partners` | `src/content/pages/strategicPartners.js` | Real partner **names**, **one-line descriptions**, **website URLs**, and **logos** (SVG or transparent PNG, reasonable file size) under e.g. `public/images/partners/`. Replace placeholder partner cards. |
+
+**Navigation:** Footer **Explore** links to founding story, core values, staff/board, plus blog/videos/contact. Footer **Network** links Mentors to `/connections` and Strategic partners to `/strategic-partners`.
+
+**Optional questions:** Should `/our-story` redirect from legacy `/our-story` on the old domain only (host-level), or do you also want a short URL like `/about` that summarizes all four sections on one scroll page?
+
+---
+
 ## Integrate Eventbrite on the Events page
 
 **Current behavior:** `src/pages/EventsPage.jsx` always shows the “What’s Coming Up” fallback copy plus CTAs. Event URLs come from `src/content/siteMeta.js` → `externalLinks.eventsFeed` and `externalLinks.eventsFull` (both still point at the old site’s `/events` path until you change them).
@@ -81,6 +98,7 @@ Replace with real names, ventures, cities, and approved quotes when marketing si
 | **Events page** | After Eventbrite embed, optional thumbnail strip or banner image for “community at events” if you have assets. |
 | **Large mentor assets** | Some files under `public/images/mentors/` are large PNGs (e.g. multi‑MB). Re-export as WebP or compressed JPEG/PNG for faster loads without visible loss. |
 | **Our Pathway story blocks** | `StoryFeature.jsx` uses decorative gradients; optional real founder photos per story when content is finalized. |
+| **About pages** | `/our-story`, `/core-values`, `/team`, `/strategic-partners` — see [About pages — final copy & imagery](#about-pages--final-copy--imagery-new) above for photography and asset folders. |
 
 ---
 

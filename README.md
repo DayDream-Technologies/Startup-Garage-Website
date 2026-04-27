@@ -52,6 +52,10 @@ docs/
 | `/connections` _(alias `/coaches-mentors`)_ | Coaches & Mentors |
 | `/groups/the-forge` _(alias `/the-forge`)_ | The Forge |
 | `/resources-tools` | Resources & Tools |
+| `/our-story` | Our founding story |
+| `/core-values` | Core values |
+| `/team` | Staff & Board of Directors |
+| `/strategic-partners` | Strategic partners |
 | `*` | 404 fallback |
 
 Deep links work on GitHub Pages via [`public/404.html`](public/404.html), which encodes the originally requested path into the query string and bounces the visitor back to the SPA shell, where a small script in [`index.html`](index.html) restores the URL before React Router renders.
@@ -60,7 +64,7 @@ Deep links work on GitHub Pages via [`public/404.html`](public/404.html), which 
 
 All copy lives in [`src/content/pages/*.js`](src/content/pages). To update headlines, body copy, or CTAs, edit the relevant module — no component changes needed. Placeholders (founder testimonials, mentor profiles, resource library entries) are tagged in the UI with a small "Placeholder" pill so they're easy to find.
 
-External destinations (events feed, intake forms, social, etc.) are centralized in [`src/content/siteMeta.js`](src/content/siteMeta.js) under `externalLinks`. See [`docs/link-audit.md`](docs/link-audit.md) for status.
+External destinations (events feed, intake forms, social, etc.) are centralized in [`src/content/siteMeta.js`](src/content/siteMeta.js) under `externalLinks`. Footer “Explore” / “Network” links are `footerExploreLinks` and `footerNetworkLinks` in the same file. See [`docs/link-audit.md`](docs/link-audit.md) for status and [`todo.md`](todo.md) for upcoming content work.
 
 ## Deployment
 

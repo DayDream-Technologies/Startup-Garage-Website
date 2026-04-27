@@ -14,13 +14,13 @@ All links are centralized in [`src/content/siteMeta.js`](../src/content/siteMeta
 | Spec reference | Used on | Resolved URL | Notes |
 |---|---|---|---|
 | Events list | Events, Header CTA, Home, About | https://www.startupgarage.org/events | Live Squarespace events page. Will be replaced with embedded calendar once the React events feed is built. |
-| Our Story | Footer | https://www.startupgarage.org/our-story | Live page on current site. |
+| Our founding story | Footer | `/our-story` (in-app) | Rebuilt in this repo; final copy/images tracked in `todo.md`. |
 | Blog | Footer | https://www.startupgarage.org/blog | Live page. |
 | Videos | Footer | https://www.startupgarage.org/videos | Live page. |
 | Contact | Footer / many CTAs | https://www.startupgarage.org/contact-us | Single contact form on live site; used as the "front door" for several requests below. |
-| Mentors & Speakers | Footer | https://www.startupgarage.org/mentors-speakers | Live page. |
+| Mentors & Speakers | Footer | `/connections` (in-app) | Mentor roster lives on Coaches & Mentors page. |
 | Student Founders | Footer | https://www.startupgarage.org/student-founders | Live page. |
-| Strategic Partners | Footer | https://www.startupgarage.org/strategic-partners | Live page. |
+| Strategic partners | Footer | `/strategic-partners` (in-app) | Rebuilt in this repo; partner logos/copy tracked in `todo.md`. |
 | Instagram | Footer / social | https://www.instagram.com/startupgarageorg | Confirmed handle. |
 | LinkedIn | Footer / social | https://www.linkedin.com/company/startup-garage-org | Confirmed company page. |
 | Facebook | Footer / social | https://www.facebook.com/startupgarageorg | Confirmed page. |

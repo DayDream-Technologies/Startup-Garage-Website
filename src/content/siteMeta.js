@@ -41,3 +41,20 @@ export const navItems = [
   { label: 'The Forge', to: '/groups/the-forge' },
   { label: 'Resources & Tools', to: '/resources-tools' },
 ];
+
+/** Footer “Explore” — mix of internal routes and external URLs still on legacy hosts until migrated */
+export const footerExploreLinks = [
+  { label: 'Our founding story', to: '/our-story' },
+  { label: 'Core values', to: '/core-values' },
+  { label: 'Staff & Board', to: '/team' },
+  { label: 'Blog', href: externalLinks.blog, external: true },
+  { label: 'Videos', href: externalLinks.videos, external: true },
+  { label: 'Contact', href: externalLinks.contact, external: true },
+];
+
+/** Footer “Network” — internal routes preferred where the experience now lives in-app */
+export const footerNetworkLinks = [
+  { label: 'Mentors & Speakers', to: '/connections' },
+  { label: 'Student Founders', href: externalLinks.studentFounders, external: true },
+  { label: 'Strategic partners', to: '/strategic-partners' },
+];

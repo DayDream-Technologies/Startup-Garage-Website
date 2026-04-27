@@ -17,8 +17,8 @@ export default function NotFoundPage() {
             If you arrived here from another site or a saved link, please email us at{' '}
             <a href="mailto:hello@startupgarage.org">hello@startupgarage.org</a> and we’ll
             point you to the right page. You can also try{' '}
-            <Link to="/events">events</Link>, <Link to="/connections">coaches & mentors</Link>,
-            or <Link to="/groups/the-forge">The Forge</Link>.
+            <Link to="/events">events</Link>, <Link to="/connections">coaches & mentors</Link>,{' '}
+            <Link to="/groups/the-forge">The Forge</Link>, or <Link to="/our-story">our story</Link>.
           </p>
         </div>
       </section>
