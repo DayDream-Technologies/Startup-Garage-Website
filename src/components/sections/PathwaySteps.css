@@ -25,12 +25,21 @@
 
 .pathway__step {
   background: var(--color-bg-light);
-  border: 1px solid var(--color-border-light);
+  border: 2px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-7);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition), box-shadow var(--transition);
+  animation: fadeInUp 400ms ease-out both;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pathway__step:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.pathway__step:nth-child(3) {
+  animation-delay: 160ms;
 }
 
 .pathway--dark .pathway__step {
@@ -40,14 +49,14 @@
 }
 
 .pathway__step:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px) scale(1.004);
+  box-shadow: var(--shadow-sm);
 }
 
 .pathway__step.is-emphasized {
-  background: var(--color-accent);
+  background: #111;
   color: var(--color-text-inverse);
-  border-color: var(--color-accent);
+  border-color: #111;
 }
 
 .pathway__step.is-emphasized .pathway__bullets li::before {
@@ -63,10 +72,10 @@
 
 .pathway__number {
   font-family: var(--font-display);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
   font-size: var(--fs-xl);
   color: var(--color-accent);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   display: inline-block;
   min-width: 2.5ch;
 }

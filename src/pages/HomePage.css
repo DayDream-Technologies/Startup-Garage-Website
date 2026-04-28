@@ -61,7 +61,8 @@
 }
 
 .story-card {
-  background: var(--color-bg-soft);
+  background: #fff;
+  border: 2px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-7);
   position: relative;
@@ -95,7 +96,7 @@
   top: var(--space-4);
   right: var(--space-4);
   background: var(--color-accent-tint);
-  color: var(--color-accent-strong);
+  color: #111;
   border-radius: var(--radius-pill);
   padding: 2px 10px;
   font-size: var(--fs-xs);

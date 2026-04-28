@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap');
 @import './tokens.css';
 
 *,
@@ -10,6 +10,27 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
 }
 
 body {
@@ -46,9 +67,10 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: var(--fw-semibold);
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -97,6 +119,22 @@ ul {
   padding: var(--space-12) 0;
 }
 
+.anim-fade-in-up {
+  animation: fadeInUp 420ms ease-out both;
+}
+
+.anim-delay-1 {
+  animation-delay: 80ms;
+}
+
+.anim-delay-2 {
+  animation-delay: 160ms;
+}
+
+.anim-delay-3 {
+  animation-delay: 240ms;
+}
+
 .section--tight {
   padding: var(--space-9) 0;
 }
@@ -108,14 +146,16 @@ ul {
 
 .section--soft {
   background: var(--color-bg-soft);
+  border-top: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .eyebrow {
   display: inline-block;
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.18em;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: var(--space-4);
@@ -141,22 +181,32 @@ ul {
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-pill);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
   font-size: var(--fs-sm);
   letter-spacing: 0.02em;
   border: 1px solid transparent;
   transition: transform var(--transition-fast), background var(--transition),
-    color var(--transition), border-color var(--transition);
+    color var(--transition), border-color var(--transition), box-shadow var(--transition-fast);
   white-space: nowrap;
+  transform-origin: center;
 }
 
 .btn:hover {
   transform: translateY(-1px);
 }
 
+.btn:active {
+  transform: translateY(0) scale(0.985);
+}
+
+.btn:focus-visible {
+  animation: softPulse 300ms ease-out;
+}
+
 .btn--primary {
   background: var(--color-accent);
   color: var(--color-text-inverse);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn--primary:hover {
@@ -177,12 +227,48 @@ ul {
 .btn--outline {
   background: transparent;
   color: var(--color-text);
-  border-color: var(--color-text);
+  border-color: var(--color-accent-strong);
 }
 
 .btn--outline:hover {
-  background: var(--color-text);
+  background: var(--color-accent-strong);
   color: var(--color-text-inverse);
+}
+
+.section--dark .btn--primary,
+.cta-banner--dark .btn--primary {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.section--dark .btn--primary:hover,
+.cta-banner--dark .btn--primary:hover {
+  background: var(--color-accent-strong);
+}
+
+.section--dark .btn--outline,
+.cta-banner--dark .btn--outline {
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent-soft);
+}
+
+.section--dark .btn--outline:hover,
+.cta-banner--dark .btn--outline:hover {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent);
+}
+
+.cta-banner--accent .btn--primary {
+  background: var(--color-text-inverse);
+  color: var(--color-accent-strong);
+  border-color: var(--color-text-inverse);
+}
+
+.cta-banner--accent .btn--primary:hover {
+  background: #f4f4f4;
+  color: var(--color-accent-strong);
+  border-color: #f4f4f4;
 }
 
 .skip-link {
@@ -215,5 +301,20 @@ ul {
 @media (max-width: 720px) {
   .section {
     padding: var(--space-9) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

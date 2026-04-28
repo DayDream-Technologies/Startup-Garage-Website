@@ -22,8 +22,11 @@ export default function Header() {
     <header className="site-header">
       <div className="container site-header__inner">
         <Link to="/" className="site-header__brand" aria-label={`${siteMeta.name} home`}>
-          <span className="site-header__brand-mark" aria-hidden="true" />
-          <span className="site-header__brand-name">Startup Garage</span>
+          <img
+            className="site-header__brand-logo"
+            src="/images/startup-garage-logo.png"
+            alt="Startup Garage"
+          />
         </Link>
 
         <button

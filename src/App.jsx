@@ -12,6 +12,7 @@ import OurStoryPage from './pages/OurStoryPage.jsx';
 import CoreValuesPage from './pages/CoreValuesPage.jsx';
 import TeamPage from './pages/TeamPage.jsx';
 import StrategicPartnersPage from './pages/StrategicPartnersPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 function ScrollManager() {
@@ -59,6 +60,7 @@ export default function App() {
           <Route path="/core-values" element={<CoreValuesPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/strategic-partners" element={<StrategicPartnersPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

@@ -2,11 +2,11 @@ import { externalLinks } from '../siteMeta.js';
 
 export const homeContent = {
   hero: {
-    eyebrow: 'A Nonprofit for Faith-Driven Founders',
-    title: 'Built for Founders Who Build for More',
+    eyebrow: 'Expanding',
+    title: 'Christ-Centered Entrepreneurship',
     body:
-      'Startup Garage is a nonprofit equipping early-stage, faith-driven entrepreneurs to launch real ventures through events, intentional connections, and a small group community called The Forge.',
-    secondary: "It's completely free. And it starts with showing up.",
+      'A nonprofit dedicated to developing redemptive entrepreneurs by equipping early-stage, faith-driven founders with intentional connections, cohorts and events to bring their ideas to life.',
+    secondary: null,
     primaryCta: { label: 'Find an Event', to: '/events' },
     secondaryCta: { label: 'Learn About The Forge', to: '/groups/the-forge' },
   },

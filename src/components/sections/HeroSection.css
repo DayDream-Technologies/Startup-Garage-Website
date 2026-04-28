@@ -5,8 +5,8 @@
 }
 
 .hero--dark {
-  background: radial-gradient(120% 70% at 80% 0%, rgba(255, 106, 19, 0.18), transparent 60%),
-    radial-gradient(80% 60% at 0% 100%, rgba(255, 106, 19, 0.08), transparent 50%),
+  background: radial-gradient(120% 70% at 80% 0%, rgba(255, 255, 255, 0.08), transparent 60%),
+    radial-gradient(80% 60% at 0% 100%, rgba(255, 255, 255, 0.04), transparent 50%),
     var(--color-bg);
   color: var(--color-text-inverse);
 }
@@ -27,6 +27,30 @@
   z-index: 1;
 }
 
+.hero__inner > .eyebrow,
+.hero__title,
+.hero__body,
+.hero__secondary,
+.hero__ctas {
+  animation: fadeInUp 420ms ease-out both;
+}
+
+.hero__title {
+  animation-delay: 60ms;
+}
+
+.hero__body {
+  animation-delay: 120ms;
+}
+
+.hero__secondary {
+  animation-delay: 180ms;
+}
+
+.hero__ctas {
+  animation-delay: 240ms;
+}
+
 .hero--center .hero__inner {
   max-width: 760px;
   margin-inline: auto;
@@ -36,6 +60,7 @@
 .hero__title {
   font-size: var(--fs-hero);
   margin-bottom: var(--space-5);
+  line-height: 1.05;
 }
 
 .hero__body {

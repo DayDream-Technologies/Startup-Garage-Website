@@ -13,25 +13,24 @@ export const siteMeta = {
   contactEmail: 'hello@startupgarage.org',
 };
 
-// External links — values resolved against the live Squarespace site where possible,
-// or routed through the contact email when no public URL is published. See
-// docs/link-audit.md for confirmation status.
+// Links for destinations not yet implemented locally.
+// Use in-app routes whenever a local page exists.
 export const externalLinks = {
-  eventsFeed: 'https://www.startupgarage.org/events',
-  eventsFull: 'https://www.startupgarage.org/events',
-  intakeForm: 'https://www.startupgarage.org/contact-us',
-  forgeApplication: 'https://www.startupgarage.org/contact-us',
-  contact: 'https://www.startupgarage.org/contact-us',
+  eventsFeed: '/events',
+  eventsFull: '/events',
+  intakeForm: '/contact',
+  forgeApplication: '/contact',
+  contact: '/contact',
   blog: 'https://www.startupgarage.org/blog',
   videos: 'https://www.startupgarage.org/videos',
-  ourStory: 'https://www.startupgarage.org/our-story',
+  ourStory: '/our-story',
   studentFounders: 'https://www.startupgarage.org/student-founders',
-  mentorsSpeakers: 'https://www.startupgarage.org/mentors-speakers',
-  strategicPartners: 'https://www.startupgarage.org/strategic-partners',
-  universityPartnership: 'https://www.startupgarage.org/contact-us',
-  resourceSuggestion: 'https://www.startupgarage.org/contact-us',
-  edScheduling: 'https://www.startupgarage.org/contact-us',
-  emailSignup: 'https://www.startupgarage.org/contact-us',
+  mentorsSpeakers: '/connections',
+  strategicPartners: '/strategic-partners',
+  universityPartnership: '/contact',
+  resourceSuggestion: '/contact',
+  edScheduling: '/contact',
+  emailSignup: '/contact',
 };
 
 export const navItems = [
@@ -49,7 +48,7 @@ export const footerExploreLinks = [
   { label: 'Staff & Board', to: '/team' },
   { label: 'Blog', href: externalLinks.blog, external: true },
   { label: 'Videos', href: externalLinks.videos, external: true },
-  { label: 'Contact', href: externalLinks.contact, external: true },
+  { label: 'Contact', to: '/contact' },
 ];
 
 /** Footer “Network” — internal routes preferred where the experience now lives in-app */

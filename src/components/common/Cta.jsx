@@ -20,11 +20,19 @@ export default function Cta({
 
   if (cta.href) {
     const isAnchor = cta.href.startsWith('#');
+    const isInternalPath = cta.href.startsWith('/');
     if (isAnchor) {
       return (
         <a className={classes} href={cta.href}>
           {label}
         </a>
+      );
+    }
+    if (isInternalPath) {
+      return (
+        <Link className={classes} to={cta.href}>
+          {label}
+        </Link>
       );
     }
     return (
