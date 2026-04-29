@@ -19,6 +19,54 @@ function ScrollManager() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    document.documentElement.classList.remove('is-scrolling');
+  }, [pathname, hash]);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    let idleTimer = null;
+    const hideAfterMs = 900;
+
+    const clearIdle = () => {
+      if (idleTimer !== null) {
+        window.clearTimeout(idleTimer);
+        idleTimer = null;
+      }
+    };
+
+    const onScroll = () => {
+      root.classList.add('is-scrolling');
+      clearIdle();
+      idleTimer = window.setTimeout(() => {
+        root.classList.remove('is-scrolling');
+        idleTimer = null;
+      }, hideAfterMs);
+    };
+
+    const onMqChange = () => {
+      if (mq.matches) {
+        clearIdle();
+        root.classList.remove('is-scrolling');
+      }
+    };
+
+    if (!mq.matches) {
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    mq.addEventListener('change', onMqChange);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      mq.removeEventListener('change', onMqChange);
+      clearIdle();
+      root.classList.remove('is-scrolling');
+    };
+  }, []);
+
+  useEffect(() => {
     if (hash) {
       const id = hash.replace('#', '');
       // Defer to allow page render before scrolling.

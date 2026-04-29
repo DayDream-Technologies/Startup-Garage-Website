@@ -10,6 +10,13 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* Scrollbar hidden until user scrolls (see .is-scrolling + ScrollManager in App.jsx) */
+  scrollbar-width: none;
+}
+
+html.is-scrolling {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-bg-soft);
 }
 
 @keyframes fadeInUp {
@@ -42,6 +49,35 @@ body {
   background: var(--color-bg-light);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html.is-scrolling::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html.is-scrolling::-webkit-scrollbar-track {
+  background: var(--color-bg-soft);
+  border-left: 1px solid var(--color-border-light);
+}
+
+html.is-scrolling::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-bg-soft);
+}
+
+html.is-scrolling::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-strong);
+}
+
+html.is-scrolling::-webkit-scrollbar-corner {
+  background: var(--color-bg-soft);
 }
 
 img,
@@ -307,6 +343,32 @@ ul {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg-soft);
+  }
+
+  html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: var(--color-bg-soft);
+    border-left: 1px solid var(--color-border-light);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--color-bg-soft);
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-strong);
+  }
+
+  html::-webkit-scrollbar-corner {
+    background: var(--color-bg-soft);
   }
 
   *,
